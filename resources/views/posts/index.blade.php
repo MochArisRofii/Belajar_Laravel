@@ -40,13 +40,13 @@
                                 @forelse($posts as $post)
                                 <tr>
                                     <td class="text-center">
-                                        <img src="{{ asset('storage/posts/'.$post->image) }}" class="rounded" style="width: 150px" alt="">
+                                        <img src="{{ asset('storage/posts/'.$post->image) }}" class="rounded" style="width: 150px" alt="Image">
                                     </td>
                                     <td>
                                         {{ $post->title }}
                                     </td>
                                     <td>
-                                        {{ !! $post->content }}
+                                        {{ strip_tags($post->content) }}
                                     </td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Uy Opo Kowe Yakin Cik')" action="{{ route('posts.destroy', $post->id) }}" method="POST">
